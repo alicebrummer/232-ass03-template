@@ -43,10 +43,17 @@ int   sum_chain(Node *headPtr);
 // Both parameters must be valid non-NULL pointers.
 //
 // Example:
-//   int a = 5, b = 3;
-//   swap(&a, &b);
-//   // a == 3,  b == 5
+
+
+//void test_swap_basic(void);
+
+   //int a = 5, b = 3;
+   //swap(&a, &b);
+   //TEST_ASSERT_EQUAL
+   // a == 3,  b == 5
 //
+
+
 // HINT:
 //   You need one temporary variable.
 //   Use the dereference operator to reach the values.
@@ -54,7 +61,9 @@ int   sum_chain(Node *headPtr);
 
 void swap(int *aPtr, int *bPtr)
 {
-    // TODO
+    int temp = *bPtr;
+    *bPtr = *aPtr;
+    *aPtr = temp;
 }
 
 
@@ -78,8 +87,13 @@ void swap(int *aPtr, int *bPtr)
 
 char* find_last_char(char *sPtr)
 {
-    // TODO
+    if (*sPtr == '\0'){
     return NULL;
+    }
+    while(*sPtr != '\0'){
+        sPtr++;
+    }
+    return sPtr-1;
 }
 
 
@@ -97,7 +111,10 @@ char* find_last_char(char *sPtr)
 
 void link_three(Node *aPtr, Node *bPtr, Node *cPtr)
 {
-    // TODO
+    aPtr -> nextPtr = bPtr;
+    bPtr -> nextPtr = cPtr;
+    cPtr -> nextPtr = NULL;
+
 }
 
 

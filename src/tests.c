@@ -46,7 +46,11 @@ int   sum_chain(Node *headPtr);
 
 void test_swap_basic(void)
 {
-    // TODO
+
+   int a = 5, b = 3;
+   swap(&a, &b);
+   TEST_ASSERT_EQUAL(3, a);
+   TEST_ASSERT_EQUAL(5, b);
 }
 
 
@@ -60,7 +64,10 @@ void test_swap_basic(void)
 
 void test_swap_equal(void)
 {
-    // TODO
+    int a = 5, b = 5;
+    swap(&a, &b);
+    TEST_ASSERT_EQUAL(5, a);
+    TEST_ASSERT_EQUAL(5, b);
 }
 
 
@@ -74,7 +81,10 @@ void test_swap_equal(void)
 
 void test_find_last_basic(void)
 {
-    // TODO
+   char str[] = "hello";
+   char *resultPtr = find_last_char(str);
+    *resultPtr == 'o';
+    resultPtr  == str + 4;
 }
 
 
@@ -88,7 +98,9 @@ void test_find_last_basic(void)
 
 void test_find_last_single(void)
 {
-    // TODO
+    char str[] = "o";
+    char *resultPtr = find_last_char(str);
+    TEST_ASSERT_EQUAL_CHAR('o', *resultPtr);
 }
 
 
@@ -101,7 +113,9 @@ void test_find_last_single(void)
 
 void test_find_last_empty(void)
 {
-    // TODO
+    char str[] = "";
+    char *resultPtr = find_last_char(str);
+    TEST_ASSERT_NULL_MESSAGE(resultPtr, NULL);
 }
 
 
@@ -118,7 +132,18 @@ void test_find_last_empty(void)
 
 void test_link_three_chain(void)
 {
-    // TODO
+    //Node *aPtr, *bPtr, *cPtr;
+    Node a = (Node){3};
+    Node b = (Node){4};
+    Node c = (Node){6};
+    
+
+    
+    link_three(&a,&b,&c);
+
+    TEST_ASSERT_EQUAL_PTR(&b, a.nextPtr);
+    TEST_ASSERT_EQUAL_PTR(&c, b.nextPtr);
+    TEST_ASSERT_EQUAL_PTR(&c.nextPtr, NULL );
 }
 
 
