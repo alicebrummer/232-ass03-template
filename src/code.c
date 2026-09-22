@@ -131,7 +131,8 @@ void link_three(Node *aPtr, Node *bPtr, Node *cPtr)
 
 void remove_middle(Node *aPtr, Node *bPtr, Node *cPtr)
 {
-    // TODO
+    aPtr -> nextPtr = cPtr;
+    bPtr -> nextPtr = NULL;
 }
 
 
@@ -148,7 +149,7 @@ void remove_middle(Node *aPtr, Node *bPtr, Node *cPtr)
 
 void remove_last(Node *bPtr)
 {
-    // TODO
+    bPtr -> nextPtr = NULL;
 }
 
 
@@ -164,7 +165,7 @@ void remove_last(Node *bPtr)
 
 void remove_first(Node *aPtr)
 {
-    // TODO
+    aPtr -> nextPtr = NULL;
 }
 
 
@@ -189,7 +190,9 @@ void remove_first(Node *aPtr)
 
 void swap_ptrs(int **aPtrPtr, int **bPtrPtr)
 {
-    // TODO
+    int* temp = *bPtrPtr;
+    *bPtrPtr = *aPtrPtr;
+    *aPtrPtr = temp;
 }
 
 
@@ -214,7 +217,7 @@ void swap_ptrs(int **aPtrPtr, int **bPtrPtr)
 
 void nullify(int **ppPtr)
 {
-    // TODO
+    *ppPtr = NULL;
 }
 
 
@@ -241,7 +244,11 @@ void nullify(int **ppPtr)
 
 void assign_bytes(long long *nPtr)
 {
-    // TODO
+    for(int i = 0; i < 8; i ++)
+    {
+
+        ((unsigned char*)nPtr)[i] = i + 1;
+    }
 }
 
 
@@ -263,6 +270,21 @@ void assign_bytes(long long *nPtr)
 
 int sum_chain(Node *headPtr)
 {
-    // TODO
-    return 0;
+    if (headPtr == NULL)
+
+        return 0;
+
+    int sum = 0;
+    Node *currentPtr = headPtr;
+    while (currentPtr != NULL) {
+
+        sum += currentPtr->value;
+        currentPtr = currentPtr->nextPtr;
+    }
+
+    
+     
+
+    return sum;
+        
 }
