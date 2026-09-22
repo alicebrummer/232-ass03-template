@@ -406,7 +406,7 @@ void test_sum_chain_single(void)
 
 void test_sum_chain_null(void)
 {
-    int x = sum_chain(NULL);
+    int x = sum_chain(NULL); 
 
     TEST_ASSERT_EQUAL(0, x);
 }
